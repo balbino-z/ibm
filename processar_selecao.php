@@ -1,5 +1,6 @@
 <?php
-session_start();
+// Inclua o arquivo de configuração do banco de dados aqui
+require_once("config.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["tipo_conta"])) {
@@ -16,8 +17,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
-
-// Redirecionar de volta para a página de seleção em caso de erro
-header("Location: selecao.php");
-exit();
 ?>

@@ -18,6 +18,13 @@ a:hover {
   padding: 20px; /* Espaçamento interno */
   border-radius: 5px; /* Borda arredondada */
 }
+/* Estilo específico para a página de perfil */
+body.perfil-page {
+  /* Suas regras de estilo aqui */
+  background-color: #f0f0f0; /* Exemplo de cor de fundo mais apagada */
+  color: #333; /* Exemplo de cor de texto mais escura */
+  /* Outras regras de estilo apropriadas */
+}
 .link {
   color: #ffeba7;
 }

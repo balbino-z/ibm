@@ -1,9 +1,6 @@
 <?php
-session_start();
-if (!isset($_SESSION['usuario'])) {
-    header("Location: login.php");
-    exit();
-}
+// Inclua o arquivo de configuração do banco de dados aqui
+require_once("config.php");
 
 // Função para obter os agendamentos do cliente usando PDO
 function obterAgendamentos($id_cliente) {

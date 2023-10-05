@@ -1,41 +1,45 @@
 <?php
-// Configurações de conexão com o banco de dados (substitua pelos seus dados)
+// Configurações de conexão com o banco de dados
 $host = 'localhost';
 $banco = 'academia';
 $usuario = 'root';
 $senha = '';
 
+$nome_completo = "";
+$username = "";
+$telefone = "";
+
 try {
-    // Cria uma nova conexão PDO
-    $conexao = new PDO("mysql:host=$host;dbname=$banco", $usuario, $senha);
+  // Cria uma nova conexão PDO
+  $conexao = new PDO("mysql:host=$host;dbname=$banco", $usuario, $senha);
 
-    // Define o modo de erros do PDO para lançar exceções em caso de problemas
-    $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  // Define o modo de erros do PDO para lançar exceções em caso de problemas
+  $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Consulta para obter as informações do personal trainer
-    $sql = "SELECT nome_completo, telefone, username FROM personal_trainers WHERE id = ?"; // Substitua "id" pelo identificador do personal trainer logado
+  // Consulta para obter as informações do personal trainer
+  $sql = "SELECT nome_completo, telefone, username FROM usuarios WHERE id = ?"; // Substitua "id" pelo identificador do personal trainer logado
 
-    // Prepara a consulta SQL
-    $stmt = $conexao->prepare($sql);
+  // Prepara a consulta SQL
+  $stmt = $conexao->prepare($sql);
 
-    if ($stmt) {
-        // Execute a consulta com o identificador do personal trainer logado
-        $id_personal_trainer_logado = 1; // Substitua pelo ID do personal trainer logado
-        $stmt->execute([$id_personal_trainer_logado]);
+  if ($stmt) {
+      // Execute a consulta com o identificador do personal trainer logado
+      $id_personal_trainer_logado = 1; // Substitua pelo ID do personal trainer logado
+      $stmt->execute([$id_personal_trainer_logado]);
 
-        // Recupere os resultados da consulta
-        $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+      // Recupere os resultados da consulta
+      $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        // Verifique se os resultados foram encontrados
-        if ($resultado) {
-            $nome_completo = $resultado['nome_completo'];
-            $telefone = $resultado['telefone'];
-            $username = $resultado['username'];
-        }
-    }
+      // Verifique se os resultados foram encontrados
+      if ($resultado) {
+          $nome_completo = $resultado['nome_completo'];
+          $telefone = $resultado['telefone'];
+          $username = $resultado['username'];
+      }
+  }
 } catch (PDOException $e) {
-    // Trate erros de conexão ou execução de consulta
-    echo "Erro: " . $e->getMessage();
+  // Trate erros de conexão ou execução de consulta
+  echo "Erro: " . $e->getMessage();
 }
 
 // Fecha a conexão com o banco de dados
@@ -48,15 +52,24 @@ $conexao = null;
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Perfil do Personal Trainer</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Remover sublinhado dos links no navbar */
+    nav a {
+      text-decoration: none;
+    }
+    /* Adicionar uma barra de rolagem vertical quando necessário */
+    body {
+      overflow-y: auto;
+    }
+  </style>
 </head>
 <body>
-  <header>
+<div id="stars3"></div>
+<header>
     <nav>
-      <ul>
-        <li><a href="#">Página Inicial</a></li>
-        <li><a href="perfil_personal.php">Perfil</a></li>
-        <li><a href="logout.php">Sair</a></li>
-      </ul>
+        <a href="#" class="btn btn-primary">Página Inicial</a>
+        <a href="agendamento.php" class="btn btn-primary">Oferecer serviço</a>
+        <a href="logout.php" class="btn btn-primary">Sair</a>
     </nav>
   </header>
   

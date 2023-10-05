@@ -1,9 +1,6 @@
 <?php
-session_start();
-if (!isset($_SESSION['usuario'])) {
-    header("Location: login.php");
-    exit();
-}
+// Inclua o arquivo de configuração do banco de dados aqui
+require_once("config.php");
 
 // Lógica para carregar mensagens anteriores do banco de dados
 $mensagens_anteriores = array(); // Array para armazenar mensagens
@@ -12,9 +9,9 @@ $mensagens_anteriores = array(); // Array para armazenar mensagens
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mensagem = $_POST["mensagem"];
     
-    // Valide e insira a mensagem no banco de dados (substitua com sua própria lógica)
+    // Valide e insira a mensagem no banco de dados
     if (!empty($mensagem)) {
-        // Insira a mensagem no banco de dados (substitua com sua própria lógica)
+        // Insira a mensagem no banco de dados 
         // Lembre-se de incluir informações como o ID do remetente, a data e a hora
         $mensagens_anteriores[] = array(
             "remetente" => $_SESSION['usuario'],
@@ -28,8 +25,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <title>Chat em Tempo Real</title>
+    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
+<div id="stars"></div>
+  <div id="stars2"></div>
+  <div id="stars3"></div>
     <h2>Chat em Tempo Real</h2>
     
     <div id="mensagens">

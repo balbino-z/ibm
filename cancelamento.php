@@ -1,12 +1,9 @@
 <?php
 session_start();
-if (!isset($_SESSION['usuario'])) {
-    header("Location: login.php");
-    exit();
-}
 
-// Lógica para obter a lista de sessões agendadas pelo usuário
-$agendamentos = obterAgendamentos($_SESSION['usuario']);
+// Inclua o arquivo de configuração do banco de dados aqui
+require_once("config.php");
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_sessao = $_POST["id_sessao"];
@@ -75,8 +72,13 @@ function cancelarSessao($id_sessao) {
 <html>
 <head>
     <title>Cancelamento de Sessão</title>
+    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
+<div id="stars"></div>
+  <div id="stars2"></div>
+  <div id="stars3"></div>
     <h2>Cancelamento de Sessão</h2>
     
     <?php if (isset($mensagem)) { echo "<p>$mensagem</p>"; } ?>

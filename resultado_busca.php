@@ -1,4 +1,6 @@
 <?php
+// Inclua o arquivo de configuração do banco de dados aqui
+require_once("config.php");
 // Conexão com o banco de dados usando PDO
 $dsn = "mysql:host=localhost;dbname=academia;charset=utf8";
 $username = "root";

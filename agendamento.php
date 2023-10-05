@@ -1,9 +1,6 @@
 <?php
-session_start();
-if (!isset($_SESSION['usuario'])) {
-    header("Location: login.php");
-    exit();
-}
+// Inclua o arquivo de configuração do banco de dados aqui
+require_once("config.php");
 
 // Lógica para obter a lista de personal trainers disponíveis
 $personal_trainers_disponiveis = array(
@@ -97,9 +94,13 @@ function agendarSessao($id_personal_trainer, $id_usuario, $data_hora) {
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="style.css">
     <title>Agendamento de Sessão</title>
 </head>
 <body>
+<div id="stars"></div>
+  <div id="stars2"></div>
+  <div id="stars3"></div>
     <h2>Agendamento de Sessão</h2>
     
     <?php if (isset($mensagem)) { echo "<p>$mensagem</p>"; } ?>

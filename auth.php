@@ -1,5 +1,6 @@
 <?php
-session_start();
+// Inclua o arquivo de configuração do banco de dados aqui
+require_once("config.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verifique as credenciais do usuário

@@ -1,9 +1,6 @@
 <?php
-session_start();
-if (!isset($_SESSION['usuario'])) {
-    header("Location: login.php");
-    exit();
-}
+// Inclua o arquivo de configuração do banco de dados aqui
+require_once("config.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Recuperar dados da avaliação do formulário
@@ -50,8 +47,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <title>Adicionar Avaliação</title>
+    <link rel="stylesheet" href="/ibm/style.css">
 </head>
 <body>
+<div id="stars"></div>
+  <div id="stars2"></div>
+<div id="stars3"></div>
     <h2>Adicionar Avaliação</h2>
     <form method="post" action="">
         Nota (1 a 5): <input type="number" name="nota" min="1" max="5" required><br>

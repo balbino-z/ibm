@@ -2,8 +2,13 @@
 <html>
 <head>
     <title>Busca de Personal Trainers</title>
+    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
+<div id="stars"></div>
+  <div id="stars2"></div>
+  <div id="stars3"></div>
     <h2>Busca Avançada de Personal Trainers</h2>
     <form method="post" action="resultado_busca.php">
         Especialidade:

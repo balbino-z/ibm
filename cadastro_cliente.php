@@ -1,9 +1,6 @@
 <?php
-session_start();
-if (isset($_SESSION['usuario'])) {
-    header("Location: perfil.php");
-    exit();
-}
+// Inclua o arquivo de configuração do banco de dados aqui
+require_once("config.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Processamento do formulário de cadastro de cliente
@@ -50,8 +47,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <title>Cadastro de Cliente</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div id="stars"></div>
+  <div id="stars2"></div>
+  <div id="stars3"></div>
     <h2>Cadastro de Cliente</h2>
     <form method="post" action="">
         Nome: <input type="text" name="nome"><br>
