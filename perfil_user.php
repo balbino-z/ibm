@@ -16,7 +16,6 @@
     }
   </style>
 </head>
-<body class="perfil-page">
 <div id="stars3"></div>
   <header>
     <nav>
